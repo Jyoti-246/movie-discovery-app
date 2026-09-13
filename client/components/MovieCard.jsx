@@ -18,11 +18,11 @@ function MovieCard({ movie }) {
               src={
                 movie.Poster && movie.Poster !== "N/A"
                   ? movie.Poster
-                  : "/placeholder-movie.jpg"
+                  : "/placeholder-movie.webp"
               }
               alt={movie.Title}
               onError={(e) => {
-                e.currentTarget.src = "/placeholder-movie.jpg";
+                e.currentTarget.src = "/placeholder-movie.webp";
               }}
             />
           ) : (
