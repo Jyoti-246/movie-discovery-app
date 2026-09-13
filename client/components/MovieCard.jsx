@@ -21,7 +21,9 @@ function MovieCard({ movie }) {
                   : "/placeholder-movie.webp"
               }
               alt={movie.Title}
+              className="w-full h-full object-cover"
               onError={(e) => {
+                e.currentTarget.onerror = null;
                 e.currentTarget.src = "/placeholder-movie.webp";
               }}
             />
