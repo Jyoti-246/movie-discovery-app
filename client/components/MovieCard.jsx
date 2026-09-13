@@ -13,25 +13,24 @@ function MovieCard({ movie }) {
       {/* Poster */}
       <div className="relative aspect-[2/3] overflow-hidden bg-gray-800">
         <Link to={`/movie/${movie.imdbID}`}>
-          {hasPoster ? (
-            <img
-              src={
-                movie.Poster && movie.Poster !== "N/A"
-                  ? movie.Poster
-                  : "/placeholder-movie.webp"
-              }
-              alt={movie.Title}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src = "/placeholder-movie.webp";
-              }}
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <span className="text-gray-500 text-sm">No Poster</span>
-            </div>
-          )}
+          {/* Poster */}
+          <div className="relative aspect-[2/3] overflow-hidden bg-gray-800">
+            <Link to={`/movie/${movie.imdbID}`}>
+              <img
+                src={hasPoster ? movie.Poster : "/placeholder-movie.webp"}
+                alt={movie.Title}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/placeholder-movie.webp";
+                }}
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70" />
+            </Link>
+            {/* Wishlist Button */}
+            ...
+          </div>
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70" />
         </Link>
