@@ -15,9 +15,15 @@ function MovieCard({ movie }) {
         <Link to={`/movie/${movie.imdbID}`}>
           {hasPoster ? (
             <img
-              src={movie.Poster}
+              src={
+                movie.Poster && movie.Poster !== "N/A"
+                  ? movie.Poster
+                  : "/placeholder-movie.jpg"
+              }
               alt={movie.Title}
-              className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+              onError={(e) => {
+                e.currentTarget.src = "/placeholder-movie.jpg";
+              }}
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
